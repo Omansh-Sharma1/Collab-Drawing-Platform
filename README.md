@@ -38,8 +38,7 @@ Ensure you have the following installed on your local machine:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/collaborative-drawing-platform.git
-   cd collaborative-drawing-platform
+   git clone https://github.com/Omansh-Sharma1/Collab-Drawing-Platform.git
    ```
 2. **Install server dependencies:**
 
@@ -54,7 +53,8 @@ Ensure you have the following installed on your local machine:
         MONGO_URI=your-mongodb-uri
         JWT_SECRET=your-secret-key
     ```
-
+  (MongoDB isn't Integrated yet. So this is optional)
+  
 4. **Run the application:**
 
     Open two terminal windows and run the following commands in each:
