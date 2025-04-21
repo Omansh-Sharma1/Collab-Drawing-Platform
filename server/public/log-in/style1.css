@@ -1,12 +1,48 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -14,7 +50,9 @@ h1 {
     text-align: center;
     color: #333;
     margin-top: 20px;
-    font-size: 6vw;
+    font-size: 2vw; /* Reduced from 6vw */
+    max-font-size: 32px;
+    animation: slideIn 0.8s ease-out;
 }
 
 form {
@@ -24,11 +62,15 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 300px;
+    animation: fadeIn 1s ease-out;
 }
 
 form label {
     display: block;
     margin-bottom: 10px;
+    animation: slideIn 0.6s ease-out;
+    text-align: center;
+    
 }
 
 form input[type="text"] {
@@ -37,6 +79,7 @@ form input[type="text"] {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 #roomActions {
@@ -47,6 +90,7 @@ form input[type="text"] {
     width: 90%;
     max-width: 320px;
     text-align: center;
+    animation: fadeIn 1.2s ease-out;
 }
 
 #roomActions input[type="text"] {
@@ -57,6 +101,7 @@ form input[type="text"] {
     border-radius: 4px;
     background-color: #fff;
     color: #333;
+    animation: fadeIn 1s ease-out;
 }
 
 .button-group {
@@ -76,16 +121,47 @@ form input[type="text"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    animation: popIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+/* Stagger the button animations */
+#roomActions button:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#roomActions button:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#roomActions button:nth-child(4) {
+    animation-delay: 0.6s;
 }
 
 #roomActions button:hover {
     background-color: rgb(5, 85, 84);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive text for very small screens */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+    h1 {
+        font-size: 6vw;
+    }
+    
+    form, #roomActions {
+        width: 85%;
+    }
+}
+
+@media (max-width: 360px) {
     h1 {
         font-size: 7vw;
+    }
+    
+    #roomActions button {
+        flex: 1 1 100%;
     }
 }
